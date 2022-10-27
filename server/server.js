@@ -19,7 +19,9 @@ const pusher = new Pusher({
     useTLS: true
   });
 
-const dbURL = "mongodb+srv://Dinesh:dinesh@webapp.udtnsnu.mongodb.net/whatsappclone?retryWrites=true&w=majority";
+//mongodb+srv://Dinesh:dinesh@mern.umdox7j.mongodb.net/test
+//mongodb+srv://Dinesh:dinesh@webapp.udtnsnu.mongodb.net/whatsappclone?retryWrites=true&w=majority
+const dbURL = "mongodb+srv://Dinesh:dinesh@mern.umdox7j.mongodb.net/mern-whatsapp-clone?retryWrites=true&w=majority";
 
 mongoose.connect(dbURL)
 const db= mongoose.connection;
