@@ -18,8 +18,8 @@ const App = () => {
         <Router>
             <TextBox />
             <Routes>
-              <Route path="/" element={<Chat />}></Route>
-              <Route path="/room/:roomId" element={<Chat />}></Route>
+              <Route path="/" element={<Chat/>}></Route>
+              <Route path="/room/:roomId" element={<Chat/>}></Route>
             </Routes>
           </Router>
         </div>
