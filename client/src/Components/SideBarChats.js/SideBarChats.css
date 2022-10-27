@@ -1,0 +1,31 @@
+:root{
+    --DarkGreen: #008069;
+    --GreyWhite:#d1d7db;
+    --DarkBlue:#111b21;
+    --LiteWhite:#ffffff;
+    --font-lite:#41525d;
+    --font-medium:#252d33;
+
+}
+.sidebarchat{
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--GreyWhite);
+    margin: 5px 5px;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+.sidebarchat:hover{
+    background-color:#edf2f5;
+}
+.sidebarchat_details{
+    margin-left: 15px;
+}
+.sidebarchat_details > h4{
+font-size: 15px;
+color: var(--font-medium);
+margin-bottom: 7px;
+}

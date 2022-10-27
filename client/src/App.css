@@ -1,0 +1,36 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+  :root{
+      --DarkGreen: #008069;
+      --GreyWhite:#d1d7db;
+      --DarkBlue:#111b21;
+      --LiteWhite:#ffffff;
+      --font-lite:#41525d;
+      --font-medium:#3b4a54;
+  
+  }
+  .app{
+      display: grid;
+      place-items:center;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(
+      to top,
+      rgb(0, 128, 105) 0%,
+      rgb(0, 128, 105) 50%,
+      rgb(17, 27, 33) 50%,
+      rgb(17, 27, 33) 100%
+    );
+  }
+  .app_main{
+      display: flex;
+      background-color:#eceff1;
+      width: 95vw;
+      height:90vh;
+      margin:10px;
+      box-shadow: 5px rgba(0,0,0,0.15);
+      border-radius: 10px;
+  }
