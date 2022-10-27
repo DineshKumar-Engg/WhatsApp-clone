@@ -22,7 +22,6 @@ const pusher = new Pusher({
 //mongodb+srv://Dinesh:dinesh@mern.umdox7j.mongodb.net/test
 //mongodb+srv://Dinesh:dinesh@webapp.udtnsnu.mongodb.net/whatsappclone?retryWrites=true&w=majority
 const dbURL = "mongodb+srv://Dinesh:dinesh@mern.umdox7j.mongodb.net/mern-whatsapp-clone?retryWrites=true&w=majority";
-
 mongoose.connect(dbURL)
 const db= mongoose.connection;
 db.once("open",()=>{
@@ -57,7 +56,7 @@ db.once("open",()=>{
     })
 })
 
-app.get('https://whatsappclone-project.herokuapp.com/room/:id',(req,res)=>{
+app.get('/room/:id',(req,res)=>{
     Rooms.find({_id:req.params.id},(err,data)=>{
         if(err){
             return res.status(500).send(err)
@@ -67,7 +66,7 @@ app.get('https://whatsappclone-project.herokuapp.com/room/:id',(req,res)=>{
     })
 })
 
-app.get('https://whatsappclone-project.herokuapp.com/messages/:id',(req,res)=>{
+app.get('/messages/:id',(req,res)=>{
     Messages.find({roomId:req.params.id},(err,data)=>{
         if(err){
             return res.status(500).send(err)
@@ -79,7 +78,7 @@ app.get('https://whatsappclone-project.herokuapp.com/messages/:id',(req,res)=>{
 
 
 
-app.post('https://whatsappclone-project.herokuapp.com/message/new',(req,res)=>{
+app.post('/message/new',(req,res)=>{
     const dbMessage =req.body;
     Messages.create((dbMessage),(err,data)=>{
         if(err){
@@ -90,7 +89,7 @@ app.post('https://whatsappclone-project.herokuapp.com/message/new',(req,res)=>{
     })
 })
 
-app.post('https://whatsappclone-project.herokuapp.com/group/create',(req,res)=>{
+app.post('/group/create',(req,res)=>{
     const name = req.body.groupName;
     Rooms.create({name},(err,data)=>{
         if(err){
@@ -101,7 +100,7 @@ app.post('https://whatsappclone-project.herokuapp.com/group/create',(req,res)=>{
     });
 });
 
-app.get('https://whatsappclone-project.herokuapp.com/all/rooms',(req,res)=>{
+app.get('/all/rooms',(req,res)=>{
    
     Rooms.find({},(err,data)=>{
         if(err){
