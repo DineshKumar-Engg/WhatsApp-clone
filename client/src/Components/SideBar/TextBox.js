@@ -13,7 +13,7 @@ const TextBox = () => {
   const [rooms,setRooms] =useState([])
 
   useEffect(()=>{
-    axios.get("http://localhost:4000/all/rooms").then((response)=>{
+    axios.get("https://whatsappclone-project.herokuapp.com/all/rooms").then((response)=>{
       setRooms(response.data)
     })
   },[])
