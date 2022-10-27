@@ -4,7 +4,7 @@ const Rooms = require('./DbRoom');
 const cors =require("cors");
 const Messages = require('./dbMessages');
 const Pusher = require("pusher");
-
+require('dotenv').config();
 
 
 const app =express();
@@ -110,6 +110,6 @@ app.get('/all/rooms',(req,res)=>{
     });
 });
 
-app.listen(4000,()=>{
+app.listen(process.env.PORT || 4000,()=>{
     console.log("server is live");
 })
