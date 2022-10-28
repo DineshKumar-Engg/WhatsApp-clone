@@ -3,6 +3,7 @@ import {Avatar} from '@mui/material'
 import './SideBarChats.css'
 import axios from 'axios'
 import {Link} from "react-router-dom"
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 const SideBarChats = ({addNewChat,name,id}) => {
 
     const [seed,setSeed]=useState("");
@@ -35,8 +36,8 @@ const SideBarChats = ({addNewChat,name,id}) => {
     </div>
     </Link>
   ):(
-    <div className='sidebarchat' onClick={createChat}>
-        <h2>Add new chat</h2>
+    <div className='sidebarchat-new' onClick={createChat}>
+        <h3> <AddCircleOutlineIcon/> Add New Chat</h3>
     </div>
   )
 }
