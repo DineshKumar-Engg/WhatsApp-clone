@@ -22,6 +22,7 @@ const pusher = new Pusher({
 const dbURL = "mongodb+srv://Dinesh:dinesh@mern.umdox7j.mongodb.net/mern-whatsapp-clone?retryWrites=true&w=majority";
 mongoose.connect(dbURL)
 const db= mongoose.connection;
+
 db.once("open",()=>{
     console.log("db connected");
 
@@ -54,11 +55,13 @@ db.once("open",()=>{
     })
 })
 
-app.get('/room/:id',(req,res)=>{
+app.get('room/:id',(req,res)=>{
     Rooms.find({_id:req.params.id},(err,data)=>{
         if(err){
-            return res.status(500).send(err)
+            console.log(err);
+            return res.status(500).send({message:"room id",err})
         }else{
+            console.log(data);
             return res.status(201).send(data[0])
         }
     })

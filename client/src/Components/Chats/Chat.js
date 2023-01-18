@@ -25,11 +25,14 @@ const Chat = () => {
 
   useEffect(() => {
     if (roomId) {
-      axios.get(`https://whatsappclone-project.herokuapp.com/room/${roomId}`).then((response) => {
+      axios.get(`http://localhost:3000/${roomId}`)
+      .then((response) => {
         setRoomName(response.data.name);
         setUpdatedAt(response.data.updatedAt);
+      }).catch((err)=>{
+        console.log("roomid",err);
       });
-      axios.get(`https://whatsappclone-project.herokuapp.com/messages/${roomId}`).then((response) => {
+      axios.get(`http://localhost:4000/messages/${roomId}`).then((response) => {
         setMessages(response.data);
       });
     }
@@ -57,7 +60,7 @@ const Chat = () => {
     if (!input) {
       return;
     } else {
-      await axios.post("https://whatsappclone-project.herokuapp.com/message/new", {
+      await axios.post(`http://localhost:4000/message/new`, {
         message: input,
         name: user.displayName,
         timestamp: new Date(),

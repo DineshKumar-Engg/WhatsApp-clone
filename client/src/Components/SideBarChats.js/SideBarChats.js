@@ -4,6 +4,8 @@ import './SideBarChats.css'
 import axios from 'axios'
 import {Link} from "react-router-dom"
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+
+
 const SideBarChats = ({addNewChat,name,id}) => {
 
     const [seed,setSeed]=useState("");
@@ -16,7 +18,7 @@ const SideBarChats = ({addNewChat,name,id}) => {
     const roomName=prompt("Please Enter Some Name")
     if(roomName){
       try{
-      await axios.post("https://whatsappclone-project.herokuapp.com/group/create",{
+      await axios.post(`http://localhost:4000/group/create`,{
         groupName:roomName,
       })
     } catch(error){

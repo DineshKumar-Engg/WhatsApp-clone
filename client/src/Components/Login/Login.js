@@ -10,8 +10,11 @@ import './login.css'
 const Login = () => {
 
 const [state,dispatch]=useStateValue();
+
 console.log(state);
+
 const signIn =()=>{
+
     signInWithPopup(auth,provider)
 
     .then((result)=>{
@@ -20,8 +23,9 @@ const signIn =()=>{
             user:result.user,
         })
         console.log(result);
-    }).catch((err)=>{
-        alert(err.message)
+    })
+    .catch((err)=>{
+        console.log(err)
     })
 }
 
