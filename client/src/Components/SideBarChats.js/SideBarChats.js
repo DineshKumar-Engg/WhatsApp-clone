@@ -18,7 +18,7 @@ const SideBarChats = ({addNewChat,name,id}) => {
     const roomName=prompt("Please Enter Some Name")
     if(roomName){
       try{
-      await axios.post(`http://localhost:4000/group/create`,{
+      await axios.post(`http://whatsapp-clone.onrender.com/group/create`,{
         groupName:roomName,
       })
     } catch(error){

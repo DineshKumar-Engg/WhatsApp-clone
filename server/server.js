@@ -4,12 +4,12 @@ const Rooms = require('./DbRoom.js');
 const cors =require("cors");
 const Messages = require('./dbMessages.js');
 const Pusher = require("pusher");
-require('dotenv').config();
-
-//{origin:["http://localhost:3000","http://whatsapp-clone.onrender.com"]}
+const dotenv = require('dotenv')
+dotenv.config()
+//
 
 const app =express();
-app.use(cors());
+app.use(cors({origin:["http://localhost:3000","http://whatsapp-clone.onrender.com"]}));
 app.use(express.json())
 
 const pusher = new Pusher({
