@@ -26,14 +26,14 @@ const Chat = () => {
 
   useEffect(() => {
     if (roomId) {
-      axios.get(`http://localhost:4000/room/${roomId}`)
+      axios.get(`${process.env.REACT_APP_URL}/room/${roomId}`)
       .then((response) => {
         setRoomName(response.data.name);
         setUpdatedAt(response.data.updatedAt);
       }).catch((err)=>{
         console.log("roomid",err);
       });
-      axios.get(`http://localhost:4000/messages/${roomId}`).then((response) => {
+      axios.get(`${process.env.REACT_APP_URL}/messages/${roomId}`).then((response) => {
         setMessages(response.data);
       });
     }
@@ -61,7 +61,7 @@ const Chat = () => {
     if (!input) {
       return;
     } else {
-      await axios.post(`http://localhost:4000/message/new`, {
+      await axios.post(`${process.env.REACT_APP_URL}/message/new`, {
         message: input,
         name: user.displayName,
         timestamp: new Date(),
