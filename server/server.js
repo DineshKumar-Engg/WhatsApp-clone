@@ -6,9 +6,10 @@ const Messages = require('./dbMessages.js');
 const Pusher = require("pusher");
 require('dotenv').config();
 
+//{origin:["http://localhost:3000","http://whatsapp-clone.onrender.com"]}
 
 const app =express();
-app.use(cors({origin:["http://localhost:4000","http://whatsapp-clone.onrender.com"]}));
+app.use(cors());
 app.use(express.json())
 
 const pusher = new Pusher({

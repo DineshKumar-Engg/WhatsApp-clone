@@ -18,7 +18,7 @@ const SideBarChats = ({addNewChat,name,id}) => {
     const roomName=prompt("Please Enter Some Name")
     if(roomName){
       try{
-      await axios.post(`${process.env.REACT_APP_URL}/group/create`,{
+      await axios.post(`http://localhost:4000/group/create`,{
         groupName:roomName,
       })
     } catch(error){
