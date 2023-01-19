@@ -17,9 +17,9 @@ const firebaseConfig = {
   const app=initializeApp(firebaseConfig);
   const auth =getAuth();
   const provider = new GoogleAuthProvider();
-  (async () => {
-    await setPersistence(auth, browserSessionPersistence);
-  })();
+  // (async () => {
+  //   await setPersistence(auth, browserSessionPersistence);
+  // })();
 
   
   export{app,auth,provider}
