@@ -26,14 +26,14 @@ const Chat = () => {
 
   useEffect(() => {
     if (roomId) {
-      axios.get(`https://whatsapp-clone-qi0g.onrender.com/room/${roomId}`)
+      axios.get(`http://localhost:4000/room/${roomId}`)
       .then((response) => {
         setRoomName(response.data.name);
         setUpdatedAt(response.data.updatedAt);
       }).catch((err)=>{
         console.log("roomid",err);
       });
-      axios.get(`https://whatsapp-clone-qi0g.onrender.com/messages/${roomId}`).then((response) => {
+      axios.get(`http://localhost:4000/messages/${roomId}`).then((response) => {
         setMessages(response.data);
       });
     }
@@ -61,7 +61,7 @@ const Chat = () => {
     if (!input) {
       return;
     } else {
-      await axios.post(`https://whatsapp-clone-qi0g.onrender.com/message/new`, {
+      await axios.post(`http://localhost:4000/message/new`, {
         message: input,
         name: user.displayName,
         timestamp: new Date(),
