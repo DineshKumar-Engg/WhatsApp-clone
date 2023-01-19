@@ -13,7 +13,7 @@ const TextBox = () => {
   const [rooms,setRooms] =useState([])
 
   useEffect(()=>{
-    axios.get(`http://localhost:4000/all/rooms`).then((response)=>{
+    axios.get(`${process.env.REACT_APP_BASEURL}/all/rooms`).then((response)=>{
       setRooms(response.data)
     })
   },[])
