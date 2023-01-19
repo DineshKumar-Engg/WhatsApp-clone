@@ -13,7 +13,7 @@ const TextBox = () => {
   const [rooms,setRooms] =useState([])
 
   useEffect(()=>{
-    axios.get(`http://whatsapp-clone.onrender.com/all/rooms`).then((response)=>{
+    axios.get(`https://whatsapp-clone-qi0g.onrender.com/all/rooms`).then((response)=>{
       setRooms(response.data)
     })
   },[])
