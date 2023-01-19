@@ -11,9 +11,9 @@ const App = () => {
   const [{ user }] = useStateValue();
   return (
     <div className="app">
-      {!user ? (
+      {!user ?(
         <Login />
-      ) : ( 
+      ): ( 
         <div className="app_main">
         <Router>
             <TextBox />
@@ -23,7 +23,8 @@ const App = () => {
             </Routes>
           </Router>
         </div>
-      )}
+      )
+      }
     </div>
   );
 };

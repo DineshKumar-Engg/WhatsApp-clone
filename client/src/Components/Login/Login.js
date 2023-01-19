@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import whatsapp from '../../Image/whatsapp.png'
 import {Button} from '@mui/material'
 import {auth,provider} from '../../firebase'
-import { signInWithPopup } from 'firebase/auth'
+import {onAuthStateChanged, signInWithPopup } from 'firebase/auth'
 import {useStateValue} from '../ContextApi/StateProvider'
 import {actionType} from '../ContextApi/reducer'
 import './login.css'
+
+
+
 
 const Login = () => {
 
@@ -13,20 +16,27 @@ const [state,dispatch]=useStateValue();
 
 console.log(state);
 
+const [user,setUser]=useState(null)
+
+onAuthStateChanged(auth,(currentUser)=>{
+    setUser(currentUser)
+})
+
+console.log(user);
 const signIn =()=>{
-
     signInWithPopup(auth,provider)
-
     .then((result)=>{
+        setUser(result.user)
         dispatch({
             type:actionType.SET_USER,
-            user:result.user,
+            user:user,
         })
-        console.log(result);
     })
     .catch((err)=>{
         console.log(err)
     })
+
+
 }
 
   return (

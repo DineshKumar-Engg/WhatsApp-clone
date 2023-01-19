@@ -1,8 +1,8 @@
 const express = require("express");
 const mongoose =require("mongoose");
-const Rooms = require('./DbRoom');
+const Rooms = require('./DbRoom.js');
 const cors =require("cors");
-const Messages = require('./dbMessages');
+const Messages = require('./dbMessages.js');
 const Pusher = require("pusher");
 require('dotenv').config();
 
@@ -55,17 +55,18 @@ db.once("open",()=>{
     })
 })
 
-app.get('room/:id',(req,res)=>{
-    Rooms.find({_id:req.params.id},(err,data)=>{
-        if(err){
-            console.log(err);
-            return res.status(500).send({message:"room id",err})
-        }else{
-            console.log(data);
-            return res.status(201).send(data[0])
-        }
-    })
+app.get('/room/:id',async(req,res)=>{
+Rooms.find({_id:req.params.id},(err,data)=>{
+    if(err){
+        return res.status(500).send({message:"room id",err})
+    }else{
+
+        return res.status(201).send(data[0])
+    }
 })
+})
+
+
 
 app.get('/messages/:id',(req,res)=>{
     Messages.find({roomId:req.params.id},(err,data)=>{
@@ -112,6 +113,6 @@ app.get('/all/rooms',(req,res)=>{
     });
 });
 
-app.listen(process.env.PORT || 4000,()=>{
+app.listen(4000,()=>{
     console.log("server is live");
 })

@@ -23,9 +23,10 @@ const Chat = () => {
   const [{ user }] = useStateValue();
   const { roomId } = useParams();
 
+
   useEffect(() => {
     if (roomId) {
-      axios.get(`http://localhost:3000/${roomId}`)
+      axios.get(`http://localhost:4000/room/${roomId}`)
       .then((response) => {
         setRoomName(response.data.name);
         setUpdatedAt(response.data.updatedAt);
@@ -80,7 +81,8 @@ const Chat = () => {
           <p>
             {updatedAt
               ? `Last updated at ${new Date(updatedAt).toString().slice(0, 25)}`
-              : "Any group"}
+              : "Any group"
+              }
           </p>
         </div>
         <div className="chat_tab">

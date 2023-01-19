@@ -1,5 +1,6 @@
 import {initializeApp} from "firebase/app";
-import {getAuth,GoogleAuthProvider} from "firebase/auth"
+import {getAuth,GoogleAuthProvider,setPersistence,  browserSessionPersistence} from "firebase/auth"
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyAGR9qhofgWPt0KY1JOHmfqJFGLRMoErig",
@@ -11,7 +12,19 @@ const firebaseConfig = {
     measurementId: "G-BF6QE8EE7E"
   };
 
+
+
   const app=initializeApp(firebaseConfig);
   const auth =getAuth();
   const provider = new GoogleAuthProvider();
+  (async () => {
+    await setPersistence(auth, browserSessionPersistence);
+  })();
+
+  
   export{app,auth,provider}
+
+
+ 
+
+    
