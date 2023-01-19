@@ -8,7 +8,7 @@ require('dotenv').config();
 
 
 const app =express();
-app.use(cors());
+app.use(cors({origin:["http://localhost:4000","http://whatsapp-clone.onrender.com"]}));
 app.use(express.json())
 
 const pusher = new Pusher({
@@ -19,7 +19,8 @@ const pusher = new Pusher({
     useTLS: true
   });
 
-const dbURL = "mongodb+srv://Dinesh:dinesh@mern.umdox7j.mongodb.net/mern-whatsapp-clone?retryWrites=true&w=majority";
+const dbURL = process.env.MONGODB_URL
+
 mongoose.connect(dbURL)
 const db= mongoose.connection;
 
