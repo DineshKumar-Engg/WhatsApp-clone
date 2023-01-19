@@ -12,17 +12,13 @@ import './login.css'
 
 const Login = () => {
 
-const [state,dispatch]=useStateValue();
+const [dispatch]=useStateValue();
 
-console.log(state);
+// console.log(state);
 
 const [user,setUser]=useState(null)
 
-onAuthStateChanged(auth,(currentUser)=>{
-    setUser(currentUser)
-})
-
-console.log(user);
+// console.log(user);
 const signIn =()=>{
     signInWithPopup(auth,provider)
     .then((result)=>{
