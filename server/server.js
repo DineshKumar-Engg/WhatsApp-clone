@@ -9,7 +9,7 @@ dotenv.config()
 //
 
 const app =express();
-app.use(cors({origin:["http://localhost:3000","http://whatsapp-clone.onrender.com"]}));
+app.use(cors({origin:["http://localhost:3000","https://whatsapp-clone-qi0g.onrender.com"]}));
 app.use(express.json())
 
 const pusher = new Pusher({
