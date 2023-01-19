@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import whatsapp from '../../Image/whatsapp.png'
 import {Button} from '@mui/material'
 import {auth,provider} from '../../firebase'
-import {signInWithPopup } from 'firebase/auth'
+import {signInWithPopup} from 'firebase/auth'
 import {useStateValue} from '../ContextApi/StateProvider'
 import {actionType} from '../ContextApi/reducer'
 import './login.css'
@@ -12,7 +12,7 @@ import './login.css'
 
 const Login = () => {
 
-const [dispatch]=useStateValue();
+const [state,dispatch]=useStateValue();
 
 
 
