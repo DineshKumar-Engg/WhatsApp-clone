@@ -15,17 +15,13 @@ const Login = () => {
 const [state,dispatch]=useStateValue();
 
 
-
-const [user,setUser]=useState(null)
-
 const signIn =()=>{
 
     signInWithPopup(auth,provider)
     .then((result)=>{
-        setUser(result.user)
         dispatch({
             type:actionType.SET_USER,
-            user:user,
+            user:result.user,
         })
     })
     .catch((err)=>{
